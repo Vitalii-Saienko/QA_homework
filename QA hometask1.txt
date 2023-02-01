@@ -1,0 +1,45 @@
+﻿Предусловия:
+1. Находясь на сайте https://www.bbc.com/ кликнуть на иконку “Sign in”.
+2. На открывшейся странице нажать кнопку “Register now”.
+3. На вопрос “сколько вам лет” - нажать на кнопку “16 or over”.
+4. На открывшейся странице тестируем результаты ввода значений в поля “день”, “месяц”, “год.”
+https://account.bbc.com/register/details/age?action=register&clientId=Account&context=international&isCasso=false&lang=ru-RU&nonce=wH4C2BpN-Mf3jn6BKmexVN2UMUkDIkhzrL6I&ptrt=https%3A%2F%2Fwww.bbc.com%2F&realm=%2F&redirectUri=https%3A%2F%2Fsession.bbc.com%2Fsession%2Fcallback%3Frealm%3D%2F&service=IdSignInService&userOrigin=HOMEPAGE_GNL
+
+
+Тест-кейс 1.1-1.4. Ввод некорректного дня рождения.
+Значения:
+* Пустое поле.
+* Спец.символы - ‘, @
+* Ввода текста - abcd
+* Числа вне диапазона - 0, 32
+* Число из “правильного интервала” но в неправильном формате: 5 (вместо 05 как того требуют по условиям регистрации)
+Ожидаемый результат: вывод ошибки “Oops, that date doesn't look right. Make sure it's a real date written as DD-MM-YYYY e.g. the 5th of June 2009 is 05-06-2009.”
+
+
+Тест-кейс 2.1-2.4 Ввод некорректного месяца рождения.
+Значения:
+* Пустое поле.
+* Спец.символы - ‘, @
+* Ввода текста - abcd
+* Числа вне диапазона - 0, 13
+* Число из “правильного интервала” но в неправильном формате: 5 (вместо 05 как того требуют по условиям регистрации)
+Ожидаемый результат: вывод ошибки “Oops, that date doesn't look right. Make sure it's a real date written as DD-MM-YYYY e.g. the 5th of June 2009 is 05-06-2009.”
+
+
+Тест-кейс 3.1-3.4 Ввод некорректного года рождения.
+Значения:
+* Пустое поле.
+* Спец.символы - ‘, @
+* Ввода текста - abcd
+* Числа вне диапазона - 0, 2024
+* Года рождения “нереальные” исходя из срока жизни человека - 1, 1900
+Ожидаемый результат: вывод ошибки “Oops, that date doesn't look right. Make sure it's a real date written as DD-MM-YYYY e.g. the 5th of June 2009 is 05-06-2009.”
+
+
+Тест-кейс 4.1-4.6 Ввод некорректных дат исходя из календаря (валидное число, но нереальное кол-во дней в месяце)
+* 30 февраля 1980
+* 31 апреля 1980
+* 31 июня 1980
+* 31 сентября 1980
+* 31 ноября 1980
+Ожидаемый результат: вывод ошибки “Oops, that date doesn't look right. Make sure it's a real date written as DD-MM-YYYY e.g. the 5th of June 2009 is 05-06-2009.”
